@@ -14,11 +14,9 @@ namespace ArmConstants {
     armMotorConfig.MotorId = 1;
     armMotorConfig.NeutralMode = ControllerNeutralMode::Brake;
     armMotorConfig.Inverted = false;
-    armMotorConfig.useFOC = false;
+    armMotorConfig.useFOC = true;
 
-    armMotorConfig.PIDConfigs.WithKP(2);
-    armMotorConfig.PIDConfigs.WithKI(1);
-    armMotorConfig.PIDConfigs.WithKD(0);
+    armMotorConfig.PIDConfigs.WithKS(2).WithKV(2).WithKA(3).WithKP(2).WithKI(1).WithKD(2).WithKS(2);
 
     armMotorConfig.CurrentLimit = 0_A;
     armMotorConfig.StatorCurrentLimit = 0_A;
@@ -30,7 +28,7 @@ namespace ArmConstants {
     return armMotorConfig;
   };
 
-  constexpr const CanCoderConfig getEncoderConfig() {
+  constexpr const CanCoderConfig getArmEncoderConfig() {
     CanCoderConfig armEncoder;
 
     armEncoder.CanCoderId = 1;
