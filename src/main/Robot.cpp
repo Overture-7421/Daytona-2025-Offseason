@@ -6,7 +6,14 @@
 
 #include <frc2/command/CommandScheduler.h>
 
-Robot::Robot() {}
+Robot::Robot() {
+
+  //#indef __FRC_ROBOTIO__
+
+  //simMotorManager.Init({{10, "DaytonaOffseason/motors/arm_rotator"}});
+
+  //#endif
+}
 
 void Robot::RobotPeriodic() {
   frc2::CommandScheduler::GetInstance().Run();

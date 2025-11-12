@@ -3,19 +3,36 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #pragma once
-
+#include "GrabberConstants.h"
 #include <frc2/command/SubsystemBase.h>
+#include <frc2/command/Subsystem.h>
+#include <frc2/command/Command.h>
+#include <frc2/command/CommandHelper.h>
+#include <units/voltage.h> // Include the proper header for units
+#include <frc2/command/Subsystem.h>
+#include <frc2/command/Commands.h>
 
-class Grabber : public frc2::SubsystemBase {
- public:
-  Grabber();
 
-  /**
-   * Will be called periodically whenever the CommandScheduler runs.
-   */
-  void Periodic() override;
+class GrabberSubsystem : public frc2::SubsystemBase {
+ public:          
+  GrabberSubsystem();
 
- private:
-  // Components (e.g. motor controllers and sensors) should generally be
-  // declared private and exposed only through public methods.
+  void moveGrabber(units::volt_t target);
+
+  bool isAlgaeIn();
+
+
+  
+
+  frc2::CommandPtr grabberSetVoltage(units::volt_t target);
+
+
+  private:
+  VoltageOut grabberMotorRequest{ 0_V };
+  OverTalonFX grabberMotor {GrabberConstants::getMotorConstants(), "rio"};
 };
+
+
+
+
+

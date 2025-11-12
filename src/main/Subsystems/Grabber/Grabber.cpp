@@ -4,7 +4,27 @@
 
 #include "Grabber.h"
 
-Grabber::Grabber() = default;
+GrabberSubsystem::GrabberSubsystem() {
+};
 
-// This method will be called once per scheduler run
-void Grabber::Periodic() {}
+void GrabberSubsystem::moveGrabber(units::volt_t target){
+      grabberMotor.SetControl(grabberMotorRequest.WithOutput(target).WithEnableFOC(true));
+};
+
+bool GrabberSubsystem::isAlgaeIn(){
+      return grabberMotor.GetStatorCurrent().GetValueAsDouble() > GrabberConstants::Algae::CurrentLimit;
+
+};
+
+frc2::CommandPtr GrabberSubsystem::grabberSetVoltage(units::volt_t target) {
+    return frc2::FunctionalCommand(
+        // Init
+        [this, target] { grabberSetVoltage(target); },
+        // onExecute
+        [this] { },
+        // onEnd
+        [this] (bool interrupted) { },
+        // isFinished
+        [this, target] { return true; }
+    ).ToPtr();
+}
