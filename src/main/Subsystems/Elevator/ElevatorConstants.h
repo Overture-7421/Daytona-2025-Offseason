@@ -7,7 +7,7 @@
 #include "OvertureLib/Sensors/OverCANCoder/OverCANCoder.h"
 
 namespace ElevatorConstants {
-  constexpr const OverTalonFXConfig getElevatorMotorConfig() {
+  constexpr const OverTalonFXConfig elevatorMotorConfig() {
     OverTalonFXConfig elevatorMotorConfig;
 
     elevatorMotorConfig.MotorId = 1;
@@ -29,7 +29,7 @@ namespace ElevatorConstants {
     return elevatorMotorConfig;
   };
 
-  constexpr const OverTalonFXConfig getSecondElevatorMotorConfig() {
+  constexpr const OverTalonFXConfig secondElevatorMotorConfig() {
     OverTalonFXConfig secondElevatorMotorConfig;
 
     secondElevatorMotorConfig.MotorId = 2;

@@ -30,7 +30,7 @@ class Arm : public frc2::SubsystemBase {
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
   
-  OverTalonFX armMotor {ArmConstants::getArmMotorConfig(), "rio"};
-  OverCANCoder armEncoder {ArmConstants::getArmEncoderConfig(), "rio"};
+  OverTalonFX armMotor {ArmConstants::armMotorConfig(), "rio"};
+  OverCANCoder armEncoder {ArmConstants::armEncoderConfig(), "rio"};
   MotionMagicVoltage controlRequest{0_tr};
 };

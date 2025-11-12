@@ -31,7 +31,7 @@ class Elevator : public frc2::SubsystemBase {
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 
-  OverTalonFX elevatorMotor {ElevatorConstants::getElevatorMotorConfig(), "rio"};
-  OverTalonFX secondElevatorMotor {ElevatorConstants::getSecondElevatorMotorConfig(), "rio"};
+  OverTalonFX elevatorMotor {ElevatorConstants::elevatorMotorConfig(), "rio"};
+  OverTalonFX secondElevatorMotor {ElevatorConstants::secondElevatorMotorConfig(), "rio"};
   MotionMagicVoltage controlRequest{0_tr};
 };

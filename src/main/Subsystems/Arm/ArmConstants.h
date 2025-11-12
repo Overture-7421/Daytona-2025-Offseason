@@ -8,7 +8,7 @@
 
 namespace ArmConstants {
 
-  constexpr const OverTalonFXConfig getArmMotorConfig() {
+  constexpr const OverTalonFXConfig armMotorConfig() {
     OverTalonFXConfig armMotorConfig;
 
     armMotorConfig.MotorId = 1;
@@ -28,7 +28,7 @@ namespace ArmConstants {
     return armMotorConfig;
   };
 
-  constexpr const CanCoderConfig getArmEncoderConfig() {
+  constexpr const CanCoderConfig armEncoderConfig() {
     CanCoderConfig armEncoder;
 
     armEncoder.CanCoderId = 1;
