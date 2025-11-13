@@ -24,7 +24,7 @@ class GrabberSubsystem : public frc2::SubsystemBase {
 
   
 
-  frc2::CommandPtr grabberSetVoltage(units::volt_t target);
+  frc2::CommandPtr SetVoltage(units::volt_t target);
 
 
   private:

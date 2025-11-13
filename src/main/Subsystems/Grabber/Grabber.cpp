@@ -16,10 +16,10 @@ bool GrabberSubsystem::isAlgaeIn(){
 
 };
 
-frc2::CommandPtr GrabberSubsystem::grabberSetVoltage(units::volt_t target) {
+frc2::CommandPtr GrabberSubsystem::SetVoltage(units::volt_t target) {
     return frc2::FunctionalCommand(
         // Init
-        [this, target] { grabberSetVoltage(target); },
+        [this, target] { SetVoltage(target); },
         // onExecute
         [this] { },
         // onEnd
