@@ -9,23 +9,18 @@ CommandManager::CommandManager(ArmSubsystem *arm, ElevatorSubsystem *elevator, G
     
 };
 
-frc2::CommandPtr CommandManager::MoveElevator(){
+frc2::CommandPtr CommandManager::Sustain(){
     return frc2::cmd::Sequence(
         elevator->SetPosition(1_m),
-        elevator->SetPosition(0_m)
-        );
-    };
-
-frc2::CommandPtr CommandManager::MoveElevatorAndArm(){
-    return frc2::cmd::Sequence(
-        frc2::cmd::Parallel(
-            elevator->SetPosition(1_m),
-            arm->SetPosition(-90_deg)
-        ),
         frc2::cmd::Wait(500_ms),
-        frc2::cmd::Parallel(
-            elevator->SetPosition(1_m),
-            arm->SetPosition(-90_deg)    
-        )
+        arm->SetPosition(-90_deg)
+    );
+}
+
+frc2::CommandPtr CommandManager::Intake(){
+    return frc2::cmd::Parallel(
+            intake -> pivotSetPosition(0_deg),
+            intake -> moveRollers(6_V),
+            intake -> moveCenters(7_V)
     );
 }
