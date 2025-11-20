@@ -91,7 +91,7 @@ namespace Constants{
         namespace Roller{
             units::volt_t L1 = 1_V;
             units::volt_t L1Confirm = -5_V;
-            units::volt_t HoldCoral = -1_V
+            units::volt_t HoldCoral = -1_V;
         }
 
         namespace Center{
